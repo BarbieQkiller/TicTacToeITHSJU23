@@ -11,6 +11,6 @@ public class GameController {
         this.board = board;
     }
 
-    // Methoder till att uppdatera view baserad på vilken state model har.
+    // Metoder till att uppdatera view baserad på vilken state model har.
 }
 
