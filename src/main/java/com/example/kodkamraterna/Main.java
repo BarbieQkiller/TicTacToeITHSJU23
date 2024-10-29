@@ -10,14 +10,12 @@ import javafx.stage.Stage;
 public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
-        // Initialize the game logic and UI components
         Game game = new Game();
         GameBoard board = new GameBoard();
         GameController controller = new GameController(game, board);
         board.setup(controller);
 
-        // Set up the scene and stage
-        Scene scene = new Scene(board, 320, 320); // Slightly larger scene for more space
+        Scene scene = new Scene(board, 320, 320);
         primaryStage.setTitle("Tic Tac Toe");
         primaryStage.setScene(scene);
         primaryStage.show();

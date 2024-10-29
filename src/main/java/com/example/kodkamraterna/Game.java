@@ -29,7 +29,6 @@ public class Game {
     }
 
     public void makeMove(int x, int y) {
-        // Check if the cell is already occupied
         if (board[x][y] != '\0') {
             throw new IllegalArgumentException("Invalid move! The cell is already occupied.");
         }

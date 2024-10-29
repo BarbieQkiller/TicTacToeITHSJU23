@@ -9,13 +9,13 @@ import javafx.scene.text.Text;
  * @author Angela Gustafsson, anggus-1
  */
 public class GameBoard extends Pane {
-    private final Text[][] cellTexts = new Text[3][3];  // Store text for each cell
+    private final Text[][] cellTexts = new Text[3][3];
     private GameController controller;
 
-    // Constructor that takes the GameController
     public GameBoard() {
     }
 
+    //TODO:circle reference between GameController and GameBoard
     public void setup(GameController controller) {
         this.controller = controller;
 
@@ -34,25 +34,23 @@ public class GameBoard extends Pane {
                 text.setY(i * 100 + 60);
                 text.setText("");
                 this.getChildren().add(text);
-                cellTexts[i][j] = text;  // Store the Text object in the array
+                cellTexts[i][j] = text;
 
                 final int row = i;
                 final int col = j;
 
-                // Add mouse click listener for each rectangle
                 rect.setOnMouseClicked(e -> controller.handleCellClick(row, col));
             }
         }
     }
 
-    // Method to update the text of a specific cell
     public void updateCell(int row, int col, String value) {
-        cellTexts[row][col].setText(value);  // Update the text for the clicked cell
+        cellTexts[row][col].setText(value);
     }
     public void resetBoard() {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                cellTexts[i][j].setText("");  // Clear the text for each cell
+                cellTexts[i][j].setText("");
             }
         }
     }
