@@ -13,7 +13,11 @@ public class Game {
     private char currentPlayer = 'X';
 
     public Game() {
-        this(new char[3][3]);
+        this(new char[][] {
+                {'\0','\0', '\0'},
+                {'\0', '\0', '\0'},
+                {'\0','\0', '\0'}
+        });;
     }
 
     Game(char[][]board) {
@@ -25,17 +29,18 @@ public class Game {
     }
 
     public void makeMove(int x, int y) {
-        if (board[x][y] == '\0') {
-            board[x][y] = currentPlayer;
-            switchPlayer();
-        }
         // Check if the cell is already occupied
         if (board[x][y] != '\0') {
             throw new IllegalArgumentException("Invalid move! The cell is already occupied.");
         }
+
+        // If the cell is empty, make the move
+        board[x][y] = currentPlayer;
+        switchPlayer();
     }
 
-    private void switchPlayer() {
+
+    void switchPlayer() {
         currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
     }
 
